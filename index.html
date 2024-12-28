@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>庚新宇宙</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>六庚的世界</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <h1>🌟 六庚的世界 🌟</h1>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#" class="nav-link" data-section="countdown">⏳ 倒數計時</a></li>
+
+                <li><a href="#" class="nav-link" data-section="gallery">📸 班級相簿</a></li>
+
+                <li><a href="#" class="nav-link" data-section="message-board">💬 留言板</a></li>
+
+                <li><a href="#" class="nav-link" data-section="news">📰 六庚新聞</a></li>
+
+                <li><a href="#" class="nav-link" data-section="stars">⭐ 六庚的明星們</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <div id="password-container" class="password-container">
+
+        <button id="password-icon" class="btn" onclick="togglePasswordInput()">🔒</button>
+
+        <input type="password" id="password-input" placeholder="輸入密碼" style="display: none;" />
+
+    </div>
+
+
+    <section id="countdown" class="section fade-in" style="display: none;">
+
+        <h2>⏳ 大日子倒數計時器</h2>
+
+        <div id="loading-message">載入中...</div>
+
+        <div id="countdown-container" class="card-container"></div>
+
+        <button id="add-event-button" class="btn" style="display: none;">📝 新增倒數事件</button>
+
+        <button id="edit-countdown-button" class="btn" style="display: none;">🛠️ 編輯現有事件</button>
+
+    </section>
+
+
+    <section id="gallery" class="section fade-in" style="display: none;">
+
+        <h2>📸 班級相簿</h2>
+
+        <input type="file" id="upload-photo" multiple accept="image/*" style="display: none;" />
+
+        <button id="show-upload-button" class="btn">上傳圖片</button>
+
+        <button id="confirm-upload-button" class="btn" style="display: none;">確認上傳</button>
+
+        <div id="gallery-container" class="gallery-grid"></div>
+
+    </section>
+
+
+    <section id="message-board" class="section fade-in" style="display: none;">
+
+        <h2>💬 留言板</h2>
+
+        <div class="message-form">
+
+            <textarea id="message-input" placeholder="輸入留言..."></textarea>
+
+            <button id="submit-message" class="btn">發送留言</button>
+
+        </div>
+
+        <div id="message-container" class="message-box"></div>
+
+    </section>
+
+
+    <section id="news" class="section fade-in" style="display: none;">
+
+        <h2>📰 六庚新聞</h2>
+
+        <div id="news-editor" style="display: none;">
+
+            <input type="text" id="news-title" placeholder="新聞標題" class="form-input">
+
+            <textarea id="news-content" placeholder="新聞內容"></textarea>
+
+            <button id="submit-news" class="btn">發布新聞</button>
+
+        </div>
+
+        <div id="news-list"></div>
+
+    </section>
+
+
+    <section id="stars" class="section fade-in" style="display: none;">
+
+        <h2>⭐ 六庚的明星們</h2>
+
+        <div style="white-space: pre-line;">
+
+            60706吳哲儁 826910@st.tc.edu.tw
+
+            60701顏敬倫 826984@st.tc.edu.tw
+
+            60702廖元陽 827124@st.tc.edu.tw
+
+            60703梅淞昀 827041@st.tc.edu.tw
+
+            60704陳立翔 827042@st.tc.edu.tw
+
+            60705童永勝 827045@st.tc.edu.tw
+
+            60707李胤麒 827128@st.tc.edu.tw
+
+            60708陳璿允 826964@st.tc.edu.tw
+
+            60712簡宇辰 826967@st.tc.edu.tw
+
+            60713蔡浩歆 827052@st.tc.edu.tw
+
+            60714盧暄承 827025@st.tc.edu.tw
+
+            60715楊晴汝
+
+            60716沈玥禛 826916@st.tc.edu.tw
+
+            60717紀妍汝 827137@st.tc.edu.tw
+
+            60718李庭誼
+
+            60719譚玹涵 827000@st.tc.edu.tw
+
+            60720何亘妮 826973@st.tc.edu.tw
+
+            60721戴妍芯 827063@st.tc.edu.tw
+
+            60722王思甯 826980@st.tc.edu.tw
+
+            60723李翊緁 827090@st.tc.edu.tw
+
+            60725林愷晨 827009@st.tc.edu.tw
+
+            石芷蘭（老師😀） sdl93226@st.tc.edu.tw
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <p>© 2024 六庚的世界 由吳哲儁開發</p>
+
+    </footer>
+
+
+    <!-- Firebase SDK -->
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
